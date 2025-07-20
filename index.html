@@ -6,15 +6,16 @@
         <title>Aaron Paz Castelan</title>
         <link href="styles/styles.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     </head>
     <body>
         <div id="header">
             <div class="container">
                 <nav>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#portfolio">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="header-text">
@@ -29,8 +30,64 @@
         </div>
         <div id="portfolio">
             <div class="container">
-                <h1 class="sub-title">Portfolio</h1>
+                <h1 class="sub-title">Projects</h1>
+                <div class="project-list">
+                    <div class="project">
+                        <img src="images/projects-1.png">
+                        <div class="layer">
+                            <h3>Finance Tracker App</h3>
+                            <p>A simple java app built with Swing that keeps track of users income and expenses.</p>
+                            <a href="https://github.com/AaronPazCastelan/FinanceTracker" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title-2">Contact Me</h1>
+                        <p><i class="fa-solid fa-paper-plane"></i>aaronpaz321@proton.me</p>
+                        <p><i class="fa-solid fa-square-phone"></i>630-945-5263</p>
+                        <div class="social-icons">
+                            <a href="linkedin.com/in/aaron-paz-castelan-616a0b305"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com/AaronPazCastelan"><i class="fa-brands fa-square-github"></i></a>
+                        </div>
+                        <a href="images/AaronPazCastelan_Resume.pdf" downlaod target="_blank" class="btn">Download Resume</a>
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Aaron Paz Castelan.</p>
+            </div>
+        </div>
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxv33UUqa9r7upU-9ZtHhPeeP8yJL3M-VLKFJGbzeUvjoiufJVrQab8MASCq2JS0xTSOw/exec'
+            const form = document.forms['submit-to-google-sheet']
+            const msg = document.getElementById("msg")
+
+            form.addEventListener('submit', e => {
+                e.preventDefault()
+                fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                        msg.innerHTML = "Message sent successfully!"
+                        setTimeout(function() {
+                            msg.innerHTML = ""
+                        },5000)
+                        form.reset()
+                    })
+                    .catch(error => console.error('Error!', error.message))
+            })
+        </script>
     </body>
 </html>

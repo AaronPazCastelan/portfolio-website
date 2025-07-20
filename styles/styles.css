@@ -12,8 +12,10 @@ html, body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    scroll-behavior: smooth;
 } 
 
+/*For header buttons*/
 #header, html, body{
     width: 100%;
     height: 100vh;
@@ -77,7 +79,7 @@ nav ul li a:hover::after {
 /*For Background of profile picture */
 .profile-container {
   position: relative;
-  display: inline-block; /* keeps it snug around the image */
+  display: inline-block; 
 }
 
 .circle-background {
@@ -86,15 +88,194 @@ nav ul li a:hover::after {
   left: 50%;
   width: 200px;
   height: 200px;
-  background-color: #FAF0E6; /* your elegant off-white */
-  border-radius: 50%; /* makes it a perfect circle */
-  transform: translate(-50%, -50%); /* centers circle on the image */
-  z-index: 1; /* behind the image */
+  background-color: #FAF0E6; 
+  border-radius: 50%; 
+  transform: translate(-50%, -50%); 
+  z-index: 1; 
 }
 
 .profile-pic {
   position: relative;
   width: 200px;
-  border-radius: 50%; /* makes the headshot itself circular */
-  z-index: 2; /* on top of the circle */
+  border-radius: 50%; 
+  z-index: 2; 
+}
+
+/*For Project section*/
+#portfolio{
+    padding: 50px 0;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 50px;
+}
+
+.sub-title-2 {
+    font-size: 50px;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.project {
+    position: relative;
+    width: 300px; 
+    height: 450px; 
+    margin: 0 auto; 
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.5s;
+}
+
+.layer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), #fadec1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    transition: height 0.5s;
+    overflow: hidden;
+}
+
+.layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.layer a{
+    margin-top: 20px;
+    color: #dbb791;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+.project:hover .layer {
+    height: 100%;
+}
+
+/*For Contact*/
+#contact {
+    margin-top: 250px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-left {
+    flex-basis: 35%;
+    margin-left: 50px;
+}
+
+.contact-right {
+    flex-basis: 60%;
+}
+
+.contact-left p {
+    margin-top: 30px;
+}
+
+.contact-left p i {
+    margin-right: 15px;
+    font-size: 25px;
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 15px;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    display: inline-block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #fadec1;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: black;
+}
+
+.contact-right form {
+    width: 100%;
+}
+
+form input, form textarea {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: #262626;
+    padding: 15px;
+    margin: 15px 0;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+}
+
+form .btn {
+    padding: 14px 60px;
+    font-size: 18px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.copyright {
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    background: #262626;
+    margin-top: 20px;
+}
+
+#msg {
+    color: 61b752;
+    margin-top: -40px;
+    display: block;
 }
